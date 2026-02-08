@@ -326,14 +326,19 @@
             border-color: var(--dark-walnut);
         }
         .mobile-menu-inner {
-            padding: 88px 28px 24px;
-            padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+            padding: 88px 28px 0;
+            padding-bottom: max(20px, env(safe-area-inset-bottom, 0px));
             display: flex;
             flex-direction: column;
             flex: 1;
             min-height: 0;
+        }
+        .mobile-menu-nav-wrap {
+            flex: 1;
+            min-height: 0;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            padding-right: 4px;
         }
         .mobile-nav {
             display: flex; flex-direction: column; gap: 4px;
@@ -375,6 +380,12 @@
             color: var(--antique-gold);
             flex-shrink: 0;
             transition: color 0.25s ease, transform 0.25s ease;
+        }
+        .mobile-menu-footer {
+            margin-top: auto;
+            flex-shrink: 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(61, 40, 23, 0.08);
         }
         .mobile-menu-footer p { margin-bottom: 6px; font-size: 14px; }
         .mobile-menu-footer .footer-contact { font-size: 14px; margin-bottom: 6px; }
@@ -998,16 +1009,18 @@
     <div class="mobile-menu" id="mobile-menu">
         <button class="close-btn" id="close-menu" aria-label="Close menu"><i class="ri-close-line"></i></button>
         <div class="mobile-menu-inner">
-            <nav class="mobile-nav">
-                <a href="#services"><i class="ri-apps-line mobile-nav-icon"></i><span>Services</span></a>
-                <a href="#about"><i class="ri-information-line mobile-nav-icon"></i><span>About</span></a>
-                <a href="#results"><i class="ri-image-line mobile-nav-icon"></i><span>Results</span></a>
-                <a href="#location"><i class="ri-map-pin-line mobile-nav-icon"></i><span>Location</span></a>
-            </nav>
+            <div class="mobile-menu-nav-wrap">
+                <nav class="mobile-nav">
+                    <a href="#services"><i class="ri-apps-line mobile-nav-icon"></i><span>Services</span></a>
+                    <a href="#about"><i class="ri-information-line mobile-nav-icon"></i><span>About</span></a>
+                    <a href="#results"><i class="ri-image-line mobile-nav-icon"></i><span>Results</span></a>
+                    <a href="#location"><i class="ri-map-pin-line mobile-nav-icon"></i><span>Location</span></a>
+                </nav>
+            </div>
             <div class="mobile-menu-footer">
                 <p class="footer-contact"><i class="ri-phone-line" style="color:var(--antique-gold)"></i> <a href="tel:+13237952283">(323) 795-2283</a></p>
                 <p class="footer-contact"><i class="ri-mail-line" style="color:var(--antique-gold)"></i> <a href="mailto:care@vlossy.com">care@vlossy.com</a></p>
-                <a href="#booking" class="btn-primary">Book Consultation</a>
+                <a href="#booking" class="btn-primary" id="mobile-menu-book-btn">Book Consultation</a>
             </div>
         </div>
     </div>
@@ -1368,6 +1381,12 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => closeMenuFn());
         });
+        const mobileBookBtn = document.getElementById('mobile-menu-book-btn');
+        if (mobileBookBtn) {
+            mobileBookBtn.addEventListener('click', () => {
+                closeMenuFn();
+            });
+        }
 
         // Intersection Observer for Fade-in Animations
         const observerOptions = {
