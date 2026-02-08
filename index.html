@@ -297,7 +297,9 @@
         .mobile-menu {
             position: fixed;
             top: 0; right: -100%;
-            width: 100%; max-width: 340px; height: 100vh;
+            width: 100%; max-width: 340px; height: 100%;
+            height: 100dvh;
+            max-height: 100vh;
             background: linear-gradient(180deg, var(--ivory-cream) 0%, var(--warm-linen) 100%);
             z-index: 1001;
             padding: 0;
@@ -324,26 +326,29 @@
             border-color: var(--dark-walnut);
         }
         .mobile-menu-inner {
-            padding: 88px 28px 32px;
+            padding: 88px 28px 24px;
+            padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
             display: flex;
             flex-direction: column;
             flex: 1;
             min-height: 0;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .mobile-nav {
-            display: flex; flex-direction: column; gap: 8px;
-            margin-bottom: 24px;
+            display: flex; flex-direction: column; gap: 4px;
+            margin-bottom: 16px;
         }
         .mobile-nav a {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             font-family: 'Playfair Display', serif;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--dark-walnut);
             text-decoration: none;
             font-weight: 400;
-            padding: 14px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(61, 40, 23, 0.08);
             opacity: 0;
             transform: translateX(20px);
@@ -371,16 +376,11 @@
             flex-shrink: 0;
             transition: color 0.25s ease, transform 0.25s ease;
         }
-        .mobile-menu-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(184, 134, 11, 0.25), transparent);
-            margin: auto 0 24px;
-        }
-        .mobile-menu-footer p { margin-bottom: 8px; font-size: 14px; }
-        .mobile-menu-footer .footer-contact { font-size: 14px; margin-bottom: 8px; }
+        .mobile-menu-footer p { margin-bottom: 6px; font-size: 14px; }
+        .mobile-menu-footer .footer-contact { font-size: 14px; margin-bottom: 6px; }
         .mobile-menu-footer .footer-contact a { color: var(--text-secondary); text-decoration: none; }
         .mobile-menu-footer .footer-contact a:hover { color: var(--antique-gold); }
-        .mobile-menu-footer .btn-primary { width: 100%; margin-top: 20px; }
+        .mobile-menu-footer .btn-primary { width: 100%; margin-top: 16px; margin-bottom: 0; }
 
         /* Desktop */
         @media (min-width: 1024px) {
@@ -1004,7 +1004,6 @@
                 <a href="#results"><i class="ri-image-line mobile-nav-icon"></i><span>Results</span></a>
                 <a href="#location"><i class="ri-map-pin-line mobile-nav-icon"></i><span>Location</span></a>
             </nav>
-            <div class="mobile-menu-divider"></div>
             <div class="mobile-menu-footer">
                 <p class="footer-contact"><i class="ri-phone-line" style="color:var(--antique-gold)"></i> <a href="tel:+13237952283">(323) 795-2283</a></p>
                 <p class="footer-contact"><i class="ri-mail-line" style="color:var(--antique-gold)"></i> <a href="mailto:care@vlossy.com">care@vlossy.com</a></p>
