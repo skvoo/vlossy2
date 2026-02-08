@@ -786,6 +786,23 @@
             transition: opacity 0.3s;
         }
         .footer-links a:hover { opacity: 1; color: var(--antique-gold); }
+        .footer-logo-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .footer-contact {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .footer-contact a {
+            color: rgba(250, 246, 240, 0.88);
+            text-decoration: none;
+        }
+        .footer-contact a:hover {
+            color: var(--antique-gold);
+        }
         .footer-social-link { transition: opacity 0.2s ease; text-decoration: none; }
         .footer-social-link:hover { opacity: 0.9; }
         .footer-social-link:hover i { color: var(--honey-bronze); }
@@ -1109,8 +1126,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <img src="source/logo-white.png" alt="VLOSS'Y" style="width: 120px; opacity: 0.9; margin-bottom: 20px;">
-                    <p style="color: var(--ivory-cream); opacity: 0.7; font-size: 14px;">Celebrity-class hair and skin care using the latest technology alongside patented innovative solutions, providing painless and effective results.</p>
+                    <div class="footer-logo-row">
+                        <img src="source/logo-white.png" alt="VLOSS'Y" style="width: 120px; opacity: 0.9;">
+                        <a href="https://www.instagram.com/vlossy.hair/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link"><i class="ri-instagram-fill" style="font-size: 22px; color: var(--antique-gold);"></i></a>
+                    </div>
+                    <p style="color: var(--ivory-cream); opacity: 0.7; font-size: 14px; margin-top: 20px;">Celebrity-class hair and skin care using the latest technology alongside patented innovative solutions, providing painless and effective results.</p>
                 </div>
                 <div class="footer-col">
                     <h5>Quick Links</h5>
@@ -1132,12 +1152,9 @@
                 </div>
                 <div class="footer-col">
                     <h5>Connect</h5>
-                    <div style="display: flex; gap: 16px; margin-bottom: 20px;">
-                        <a href="https://www.instagram.com/vlossy.hair/" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link"><i class="ri-instagram-fill" style="font-size: 22px; color: var(--antique-gold);"></i></a>
-                    </div>
-                    <p style="font-size: 14px; opacity: 0.8;"><a href="tel:+13237952283" style="color: inherit;">(323) 795-2283</a></p>
-                    <p style="font-size: 14px; opacity: 0.8;"><a href="mailto:care@vlossy.com" style="color: inherit;">care@vlossy.com</a></p>
-                    <p style="font-size: 14px; opacity: 0.8;"><a href="https://www.google.com/maps/search/?api=1&query=1445+N+La+Brea+Ave+Los+Angeles+CA+90028" target="_blank" rel="noopener" style="color: inherit;">1445 N La Brea Ave, Los Angeles CA 90028</a></p>
+                    <p class="footer-contact"><a href="tel:+13237952283">(323) 795-2283</a></p>
+                    <p class="footer-contact"><a href="mailto:care@vlossy.com">care@vlossy.com</a></p>
+                    <p class="footer-contact"><a href="https://www.google.com/maps/search/?api=1&query=1445+N+La+Brea+Ave+Los+Angeles+CA+90028" target="_blank" rel="noopener">1445 N La Brea Ave, Los Angeles CA 90028</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
